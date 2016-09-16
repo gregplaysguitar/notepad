@@ -10,7 +10,7 @@
 
     <meta name="viewport" content="width=device-width">
 
-    {% assets filters='cssrewrite', output='gen/all%(version)s.css',
+    {% assets filters='cssrewrite', output='gen/all.%(version)s.css',
               'style_css' %}
       <link href="{{ ASSET_URL }}" rel="stylesheet" type="text/css"
             media="screen,projection,print">
@@ -39,7 +39,7 @@
         {% include 'panel.html' %}
       {% endif %}
     </div>
-    {% assets filters='rjsmin', output='gen/all.js',
+    {% assets filters='rjsmin', output='gen/all.%(version)s.js',
               'j/site.js' %}
         <script type='text/javascript' src='{{ ASSET_URL }}'></script>
     {% endassets %}
