@@ -8,13 +8,14 @@ from flask import Flask, render_template, redirect, url_for, request, abort, \
 from flask_assets import Environment, Bundle
 import shortuuid
 
+PROJECT_ROOT = os.path.dirname(__file__)
 
 app = Flask(__name__)
 assets = Environment(app)
 
 app.config.update(dict(
     # default settings here
-    DATA_DIR='data',
+    DATA_DIR=os.path.join(PROJECT_ROOT, 'data'),
     KEY_LENGTH=6
 ))
 # load env-specific settings (i.e. dev)
