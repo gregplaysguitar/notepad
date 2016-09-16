@@ -1,6 +1,13 @@
 body,
-textarea {
+textarea,
+input {
   font-family: "Helvetica neue", helvetica, sans-serif;
+}
+a {
+  color: black;
+  &:hover {
+    text-decoration: none;
+  }
 }
 body {
   padding: 0;
@@ -35,11 +42,44 @@ textarea {
     outline: none;
   }
 }
-input {
+input[type="submit"] {
   position: absolute;
   bottom: 5px;
   right: 5px;
   .init & {
     display: none;
+  }
+}
+.panel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #7FD52D;
+  padding: 10px;
+  margin-bottom: -40px;
+  height: 20px;
+  line-height: 20px;
+  border-top: 1px solid darken(#7FD52D, 10);
+
+  &, input {
+    font-size: 15px;
+  }
+  input, a {
+    margin: 0 10px 0 0;
+  }
+
+  input {
+    border: none;
+    background: none;
+    width: 220px;
+    &:focus {
+      outline: none;
+    }
+  }
+
+  body.saved & {
+    margin-bottom: 0;
+    transition: 300ms margin;
   }
 }

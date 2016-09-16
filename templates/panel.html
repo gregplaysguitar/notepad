@@ -1,0 +1,8 @@
+
+{% set root = request.url_root.rstrip('/') %}
+Share:
+<input type="text" value="{{ root + url_for('index', key=key) }}"
+       onclick="javascript:this.select()">
+<a class="d" href="{{ url_for('download', key=key) }}">
+  Download</a>
+<a class="n" href="/">New</a>

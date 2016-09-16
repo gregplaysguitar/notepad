@@ -4,7 +4,7 @@
 import os
 
 from flask import Flask, render_template, redirect, url_for, request, abort, \
-    jsonify
+    jsonify, make_response
 from flask_assets import Environment, Bundle
 import shortuuid
 
@@ -30,9 +30,9 @@ def file_path(key):
 
 
 def new_key():
-    key = shortuuid.uuid()[:app.config['KEY_LENGTH']]
+    key = shortuuid.uuid()[-app.config['KEY_LENGTH']:]
 
-    # recurse until we get an unused one
+    # recurse until we get an unused one, just in case
     if os.path.exists(file_path(key)):
         return new_key
 
@@ -82,9 +82,23 @@ def save(key=None):
     key = save_note(request.form.get('t', ''), key=key)
 
     if request.form.get('a'):
-        return jsonify(url=url_for('index', key=key))
+        panel = app.jinja_env.get_template('panel.html').render(key=key)
+        return jsonify(url=url_for('index', key=key), panel=panel)
     else:
         return redirect(url_for('index', key=key))
+
+
+@app.route('/<key>.txt')
+def download(key):
+    text = get_note(key)
+
+    if text is None:
+        abort(404)
+
+    response = make_response(text)
+    response.headers["Content-Disposition"] = \
+        "attachment; filename=%s.txt" % key
+    return response
 
 
 @app.errorhandler(404)

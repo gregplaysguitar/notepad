@@ -27,13 +27,18 @@
     {% block extrahead %}
     {% endblock %}
   </head>
-  <body>
+  <body {% if key %}class="saved"{% endif %}>
 
     <form action="{{ url_for('save', key=key) }}" method="post">
       <textarea name="t" placeholder="Start typing...">{{ text }}</textarea>
       <input type="submit" value="Save">
     </form>
 
+    <div class="panel">
+      {% if key %}
+        {% include 'panel.html' %}
+      {% endif %}
+    </div>
     {% assets filters='rjsmin', output='gen/all.js',
               'j/site.js' %}
         <script type='text/javascript' src='{{ ASSET_URL }}'></script>

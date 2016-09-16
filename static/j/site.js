@@ -26,7 +26,9 @@
 
         window.history.replaceState({}, null, d.url);
         f.action = d.url;
+        document.getElementsByClassName('panel')[0].innerHTML = d.panel;
         document.body.classList.remove('saving');
+        document.body.className += ' saved';
       }
     };
     h.send(p);
