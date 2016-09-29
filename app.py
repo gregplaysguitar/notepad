@@ -51,6 +51,11 @@ def save_note(text, key=None):
     return key
 
 
+def delete_note(key):
+    path = file_path(key)
+    os.remove(path)
+
+
 def get_note(key):
     path = file_path(key)
 
@@ -87,6 +92,13 @@ def save(key=None):
         return jsonify(url=url_for('index', key=key), panel=panel)
     else:
         return redirect(url_for('index', key=key))
+
+
+@app.route('/d/<key>', methods=['POST'])
+def delete(key):
+    key = delete_note(key=key)
+
+    return redirect(url_for('index'))
 
 
 @app.route('/<key>.txt')

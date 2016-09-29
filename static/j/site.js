@@ -29,6 +29,7 @@
         document.getElementsByClassName('panel')[0].innerHTML = d.panel;
         document.body.classList.remove('saving');
         document.body.className += ' saved';
+        panel();
       }
     };
     h.send(p);
@@ -41,4 +42,14 @@
     clearTimeout(to);
     to = setTimeout(fs, 500);
   });
+
+  function panel () {
+    document.getElementsByClassName('delete')[0].addEventListener('submit', function () {
+      return confirm("Are you sure? Deleted notes can't be recovered.");
+    });
+  }
+
+  if (document.getElementsByClassName('.panel')[0]) {
+    panel();
+  }
 })();

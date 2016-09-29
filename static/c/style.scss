@@ -1,4 +1,5 @@
-$panel-height: 40px;
+$panel-height: 50px;
+$share-width: 220px;
 
 body,
 textarea,
@@ -78,16 +79,45 @@ input[type="submit"] {
   &, input {
     font-size: 15px;
   }
-  input, a {
+  input, a, form {
     margin: 0 10px 0 0;
+    display: inline-block;
+    vertical-align: middle;
   }
-
-  input {
-    border: none;
-    background: none;
-    width: 220px;
-    &:focus {
-      outline: none;
+  img {
+    opacity: .5;
+    cursor: pointer;
+    margin: 0 0 0 15px;
+    &:hover {
+      opacity: 1;
+    }
+  }
+  .share,
+  .delete {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .share {
+    overflow: hidden;
+    width: 0;
+    transition: 200ms width;
+    -webkit-transition: 200ms width;
+  }
+  .delete {
+    button {
+      background: none;
+      border: none;
+      margin: 0;
+    }
+  }
+  .share {
+    input {
+      border: none;
+      background: none;
+      width: $share-width;
+      &:focus {
+        outline: none;
+      }
     }
   }
 
