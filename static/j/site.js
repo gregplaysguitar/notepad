@@ -12,6 +12,8 @@
   function fs (e) {
     e && e.preventDefault();
 
+    var tm;
+    clearTimeout(tm);
     document.body.classList.add('saving');
 
     var h = new window.XMLHttpRequest();
@@ -27,7 +29,9 @@
         window.history.replaceState({}, null, d.url);
         f.action = d.url;
         document.getElementById('panel').innerHTML = d.panel;
-        document.body.classList.remove('saving');
+        tm = setTimeout(function () {
+          document.body.classList.remove('saving');
+        }, 1000);
         document.body.className += ' saved';
         panel();
       }
