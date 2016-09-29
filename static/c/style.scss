@@ -4,7 +4,8 @@ $share-width: 220px;
 body,
 textarea,
 input {
-  font-family: "Helvetica neue", helvetica, sans-serif;
+  // font-family: "Helvetica neue", helvetica, sans-serif;
+  font-family: Georgia, Times, Times New Roman, serif;
 }
 a {
   color: black;
@@ -18,15 +19,20 @@ body {
   overflow: hidden;
 
   &::after {
-    content: 'Saving...';
-    background: #f5f5f5;
+    // content: 'Saving...';
+    // background: #f5f5f5;
     position: absolute;
-    top: 5px;
-    right: 5px;
-    padding: 5px 10px;
+    top: 12px;
+    right: 12px;
+    // padding: 5px 10px;
     opacity: 0;
-    pointer-events: none;
+    // pointer-events: none;
     transition: 0s opacity ease .5s;
+
+    content: '';
+    background: url(../i/loader.gif);
+    background-size: 16px 16px;
+    padding: 8px;
   }
 
   &.saving::after {
