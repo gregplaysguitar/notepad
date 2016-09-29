@@ -94,7 +94,7 @@ input[type="submit"] {
   margin-bottom: -2 * $panel-height;
   height: $panel-height - 20px;
   line-height: $panel-height - 20px;
-  border-top: 1px solid darken(#7FD52D, 10);
+  border-top: 2px solid darken(#7FD52D, 10);
 
   &, input {
     font-size: 15px;
