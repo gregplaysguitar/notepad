@@ -29,12 +29,13 @@
   </head>
   <body {% if key %}class="saved"{% endif %}>
 
-    <form action="{{ url_for('save', key=key) }}" method="post">
-      <textarea name="t" placeholder="Start typing...">{{ text }}</textarea>
+    <form action="{{ url_for('save', key=key) }}" method="post" id="form">
+      <textarea name="t" id="text" placeholder="Start typing...">
+        {{- text }}</textarea>
       <input type="submit" value="Save">
     </form>
 
-    <div class="panel">
+    <div id="panel">
       {% if key %}
         {% include 'panel.html' %}
       {% endif %}

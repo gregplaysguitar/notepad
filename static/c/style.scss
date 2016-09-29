@@ -64,7 +64,7 @@ input[type="submit"] {
     display: none;
   }
 }
-.panel {
+#panel {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -92,25 +92,24 @@ input[type="submit"] {
       opacity: 1;
     }
   }
-  .share,
-  .delete {
+  #share,
+  #delete {
     display: inline-block;
     vertical-align: middle;
   }
-  .share {
+  #share {
     overflow: hidden;
     width: 0;
     transition: 200ms width;
-    -webkit-transition: 200ms width;
   }
-  .delete {
+  #delete {
     button {
       background: none;
       border: none;
       margin: 0;
     }
   }
-  .share {
+  #share {
     input {
       border: none;
       background: none;

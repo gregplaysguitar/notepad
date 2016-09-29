@@ -1,22 +1,22 @@
 
 {% set root = request.url_root.rstrip('/') %}
-<a class="s" href="{{ url_for('download', key=key) }}">
+<a id="s" href="{{ url_for('download', key=key) }}">
   <img src="{{ url_for('static', filename='i/share.svg') }}"
        width=26 height=26 title="Share">
 </a>
-<div class="share">
+<div id="share">
   <input type="text" value="{{ root + url_for('index', key=key) }}"
          onclick="javascript:this.select()">
 </div>
-<a class="d" href="{{ url_for('download', key=key) }}">
+<a id="d" href="{{ url_for('download', key=key) }}">
   <img src="{{ url_for('static', filename='i/download.png') }}"
        width=26 height=26 title="Download">
 </a>
-<a class="n" href="/">
+<a id="n" href="/">
   <img src="{{ url_for('static', filename='i/new.png') }}"
        width=26 height=26 title="New note">
 </a>
-<form class="delete" action="{{ url_for('delete', key=key) }}" method="post">
+<form id="delete" action="{{ url_for('delete', key=key) }}" method="post">
   <button type="submit">
     <img src="{{ url_for('static', filename='i/delete.png') }}"
          width=26 height=26 title="Delete">

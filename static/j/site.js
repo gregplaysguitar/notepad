@@ -4,8 +4,8 @@
     document.body.className += ' init';
   }
 
-  var t = document.getElementsByTagName('textarea')[0];
-  var f = document.getElementsByTagName('form')[0];
+  var t = document.getElementById('text');
+  var f = document.getElementById('form');
   t.focus();
   t.setSelectionRange(t.value.length, t.value.length);
 
@@ -26,7 +26,7 @@
 
         window.history.replaceState({}, null, d.url);
         f.action = d.url;
-        document.getElementsByClassName('panel')[0].innerHTML = d.panel;
+        document.getElementById('panel').innerHTML = d.panel;
         document.body.classList.remove('saving');
         document.body.className += ' saved';
         panel();
@@ -44,12 +44,16 @@
   });
 
   function panel () {
-    document.getElementsByClassName('delete')[0].addEventListener('submit', function () {
+    document.getElementById('delete').addEventListener('submit', function () {
       return confirm("Are you sure? Deleted notes can't be recovered.");
+    });
+    document.getElementById('s').addEventListener('click', function () {
+      // document.getElementById('share');
+      // return false;
     });
   }
 
-  if (document.getElementsByClassName('.panel')[0]) {
+  if (document.getElementById('panel').innerHTML.trim()) {
     panel();
   }
 })();
