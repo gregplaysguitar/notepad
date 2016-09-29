@@ -51,10 +51,10 @@
     document.getElementById('delete').addEventListener('submit', function () {
       return confirm("Are you sure? Deleted notes can't be recovered.");
     });
-    document.getElementById('s').addEventListener('click', function () {
-      // document.getElementById('share');
-      // return false;
-    });
+    // document.getElementById('s').addEventListener('click', function () {
+    //   document.getElementById('panel').className += ' sharing';
+    //   return false;
+    // });
   }
 
   if (document.getElementById('panel').innerHTML.trim()) {

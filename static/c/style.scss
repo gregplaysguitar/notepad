@@ -117,11 +117,14 @@ input[type="submit"] {
     display: inline-block;
     vertical-align: middle;
   }
-  #share {
-    overflow: hidden;
-    width: 0;
-    transition: 200ms width;
-  }
+  // #share {
+  //   overflow: hidden;
+  //   width: 0;
+  //   transition: 200ms width;
+  // }
+  // &.sharing #share {
+  //   width: $share-width;
+  // }
   #delete {
     button {
       background: none;
@@ -129,16 +132,16 @@ input[type="submit"] {
       margin: 0;
     }
   }
-  #share {
-    input {
-      border: none;
-      background: none;
-      width: $share-width;
-      &:focus {
-        outline: none;
-      }
-    }
-  }
+  // #share {
+  //   input {
+  //     border: none;
+  //     background: none;
+  //     width: $share-width;
+  //     &:focus {
+  //       outline: none;
+  //     }
+  //   }
+  // }
 
   body.saved & {
     margin-bottom: 0;
