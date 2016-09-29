@@ -1,5 +1,6 @@
 $panel-height: 50px;
 $share-width: 220px;
+$green: #7FD52D;
 
 body,
 textarea,
@@ -13,32 +14,45 @@ a {
     text-decoration: none;
   }
 }
+
 body {
   padding: 0;
   margin: 0;
   overflow: hidden;
 
-  &::after {
-    // content: 'Saving...';
-    // background: #f5f5f5;
+  // &::after {
+  //   // content: 'Saving...';
+  //   // background: #f5f5f5;
+  //   position: absolute;
+  //   top: 12px;
+  //   right: 12px;
+  //   // padding: 5px 10px;
+  //   opacity: 0;
+  //   // pointer-events: none;
+  //   transition: 0s opacity ease .5s;
+  //
+  //   content: '';
+  //   background: url(../i/loader.gif);
+  //   background-size: 16px 16px;
+  //   padding: 8px;
+  // }
+  //
+  // &.saving::after {
+  //   opacity: 1;
+  //   transition: none;
+  // }
+
+  .loader {
+    display: none;
     position: absolute;
-    top: 12px;
-    right: 12px;
-    // padding: 5px 10px;
-    opacity: 0;
-    // pointer-events: none;
-    transition: 0s opacity ease .5s;
-
-    content: '';
-    background: url(../i/loader.gif);
-    background-size: 16px 16px;
-    padding: 8px;
+    top: 0;
+    right: 0;
+  }
+  &.saving .loader {
+    display: block;
   }
 
-  &.saving::after {
-    opacity: 1;
-    transition: none;
-  }
+
   &.saved {
     padding-bottom: $panel-height;
   }
@@ -75,7 +89,7 @@ input[type="submit"] {
   bottom: 0;
   left: 0;
   right: 0;
-  background: #7FD52D;
+  background: $green;
   padding: 10px;
   margin-bottom: -2 * $panel-height;
   height: $panel-height - 20px;
@@ -129,5 +143,65 @@ input[type="submit"] {
   body.saved & {
     margin-bottom: 0;
     transition: 300ms margin;
+  }
+}
+
+
+// http://projects.lukehaas.me/css-loaders/
+.loader:before,
+.loader:after,
+.loader {
+  font-size: 5px;
+  border-radius: 50%;
+  width: 1.25em;
+  height: 1.25em;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation: load7 1.8s infinite ease-in-out;
+  animation: load7 1.8s infinite ease-in-out;
+}
+.loader {
+  color: darken($green, 10);
+  margin: 3em 6em;
+  position: relative;
+  text-indent: -9999em;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+.loader:before {
+  left: -1.75em;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+.loader:after {
+  left: 1.75em;
+}
+.loader:before,
+.loader:after {
+  content: '';
+  position: absolute;
+  top: 0;
+}
+@-webkit-keyframes load7 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 1.25em 0 -1.3em;
+  }
+  40% {
+    box-shadow: 0 1.25em 0 0;
+  }
+}
+@keyframes load7 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 1.25em 0 -1.3em;
+  }
+  40% {
+    box-shadow: 0 1.25em 0 0;
   }
 }

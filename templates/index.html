@@ -40,6 +40,9 @@
         {% include 'panel.html' %}
       {% endif %}
     </div>
+
+    <div class="loader">Saving...</div>
+
     {% assets filters='rjsmin', output='gen/all.%(version)s.js',
               'j/site.js' %}
         <script type='text/javascript' src='{{ ASSET_URL }}'></script>
