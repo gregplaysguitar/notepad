@@ -1,7 +1,7 @@
 Setup
 =====
 
-Requires Python 2.7.x, virtualenv recommended
+Requires Python 2.7.x or 3.4.x, virtualenv recommended
 
 1. Install requirements:
 
